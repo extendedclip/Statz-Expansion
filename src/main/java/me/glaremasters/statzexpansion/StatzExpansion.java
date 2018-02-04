@@ -143,11 +143,6 @@ public class StatzExpansion extends PlaceholderExpansion {
                     api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId()).longValue());
         }
 
-        if (identifier.equals("votes")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.VOTES, player.getUniqueId()).longValue());
-        }
-
         return null;
     }
 
