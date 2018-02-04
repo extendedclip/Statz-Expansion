@@ -100,7 +100,7 @@ public class StatzExpansion extends PlaceholderExpansion {
                     api.getSpecificData(PlayerStat.DAMAGE_TAKEN, player.getUniqueId()).longValue());
         }
 
-        if (identifier.equals("distance_travelled")) {
+        if (identifier.equals("distance_traveled")) {
             return String.valueOf(
                     api.getSpecificData(PlayerStat.DISTANCE_TRAVELLED, player.getUniqueId())
                             .longValue());
