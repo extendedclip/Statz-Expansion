@@ -73,76 +73,34 @@ public class StatzExpansion extends PlaceholderExpansion {
             return "";
         }
 
-        if (identifier.equals("joins")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.JOINS, player.getUniqueId()).longValue());
+        switch(identifier) {
+            case "joins":
+                return String.valueOf(api.getSpecificData(PlayerStat.JOINS, player.getUniqueId()).longValue());
+            case "death":
+                return String.valueOf(api.getSpecificData(PlayerStat.DEATHS, player.getUniqueId()).longValue());
+            case "blocks_broken":
+                return String.valueOf(api.getSpecificData(PlayerStat.BLOCKS_BROKEN, player.getUniqueId()).longValue());
+            case "blocks_placed":
+                return String.valueOf(api.getSpecificData(PlayerStat.BLOCKS_PLACED, player.getUniqueId()).longValue());
+            case "damage_taken":
+                return String.valueOf(api.getSpecificData(PlayerStat.DAMAGE_TAKEN, player.getUniqueId()).longValue());
+            case "distance_traveled":
+                return String.valueOf(api.getSpecificData(PlayerStat.DISTANCE_TRAVELLED, player.getUniqueId()).longValue());
+            case "food_eaten":
+                return String.valueOf(api.getSpecificData(PlayerStat.FOOD_EATEN, player.getUniqueId()).longValue());
+            case "crafted_items":
+                return String.valueOf(api.getSpecificData(PlayerStat.ITEMS_CRAFTED, player.getUniqueId()).longValue());
+            case "caught_items":
+                return String.valueOf(api.getSpecificData(PlayerStat.ITEMS_CAUGHT, player.getUniqueId()).longValue());
+            case "players_kille":
+                return String.valueOf(api.getSpecificData(PlayerStat.KILLS_PLAYERS, player.getUniqueId()).longValue());
+            case "time_played":
+                return String.valueOf(api.getSpecificData(PlayerStat.TIME_PLAYED, player.getUniqueId()).longValue());
+            case "times_shorn":
+                return String.valueOf(api.getSpecificData(PlayerStat.TIMES_SHORN, player.getUniqueId()).longValue());
+            case "xp_gained":
+                return String.valueOf(api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId()).longValue());
         }
-
-        if (identifier.equals("deaths")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.DEATHS, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("blocks_broken")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.BLOCKS_BROKEN, player.getUniqueId())
-                            .longValue());
-        }
-
-        if (identifier.equals("blocks_placed")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.BLOCKS_PLACED, player.getUniqueId())
-                            .longValue());
-        }
-
-        if (identifier.equals("damage_taken")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.DAMAGE_TAKEN, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("distance_traveled")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.DISTANCE_TRAVELLED, player.getUniqueId())
-                            .longValue());
-        }
-
-        if (identifier.equals("food_eaten")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.FOOD_EATEN, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("crafted_items")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.ITEMS_CRAFTED, player.getUniqueId())
-                            .longValue());
-        }
-
-        if (identifier.equals("caught_items")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.ITEMS_CAUGHT, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("players_killed")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.KILLS_PLAYERS, player.getUniqueId())
-                            .longValue());
-        }
-
-        if (identifier.equals("time_played")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.TIME_PLAYED, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("times_shorn")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.TIMES_SHORN, player.getUniqueId()).longValue());
-        }
-
-        if (identifier.equals("xp_gained")) {
-            return String.valueOf(
-                    api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId()).longValue());
-        }
-
         return null;
     }
 
