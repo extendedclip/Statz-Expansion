@@ -63,7 +63,7 @@ public class StatzExpansion extends PlaceholderExpansion {
 
     @Override
     public String getVersion() {
-        return "1.0.1";
+        return "1.0.2";
     }
 
     @Override
@@ -92,7 +92,7 @@ public class StatzExpansion extends PlaceholderExpansion {
                 return String.valueOf(api.getSpecificData(PlayerStat.ITEMS_CRAFTED, player.getUniqueId()).longValue());
             case "caught_items":
                 return String.valueOf(api.getSpecificData(PlayerStat.ITEMS_CAUGHT, player.getUniqueId()).longValue());
-            case "players_kille":
+            case "players_killed":
                 return String.valueOf(api.getSpecificData(PlayerStat.KILLS_PLAYERS, player.getUniqueId()).longValue());
             case "time_played":
                 return String.valueOf(api.getSpecificData(PlayerStat.TIME_PLAYED, player.getUniqueId()).longValue());
@@ -100,6 +100,8 @@ public class StatzExpansion extends PlaceholderExpansion {
                 return String.valueOf(api.getSpecificData(PlayerStat.TIMES_SHORN, player.getUniqueId()).longValue());
             case "xp_gained":
                 return String.valueOf(api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId()).longValue());
+            case "mobs_killed":
+                return String.valueOf(api.getSpecificData(PlayerStat.KILLS_MOBS, player.getUniqueId()).longValue());
         }
         return null;
     }
