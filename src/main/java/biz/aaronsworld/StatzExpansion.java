@@ -10,8 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class StatzExpansion extends PlaceholderExpansion {
-    private Statz plugin;
-    API api;
+    private API api;
 
     public boolean canRegister() {
         Statz statz = (Statz)Bukkit.getServer().getPluginManager().getPlugin("Statz");
@@ -26,8 +25,8 @@ public class StatzExpansion extends PlaceholderExpansion {
         if (!this.canRegister()) {
             return false;
         } else {
-            this.plugin = (Statz)Bukkit.getPluginManager().getPlugin(this.getPlugin());
-            return this.plugin != null && PlaceholderAPI.registerPlaceholderHook(this.getIdentifier(), this);
+            Statz plugin = (Statz) Bukkit.getPluginManager().getPlugin(this.getPlugin());
+            return plugin != null && PlaceholderAPI.registerPlaceholderHook(this.getIdentifier(), this);
         }
     }
 
