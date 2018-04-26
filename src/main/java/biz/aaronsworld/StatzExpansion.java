@@ -13,9 +13,6 @@ public class StatzExpansion extends PlaceholderExpansion {
     private Statz plugin;
     API api;
 
-    public StatzExpansion() {
-    }
-
     public boolean canRegister() {
         Statz statz = (Statz)Bukkit.getServer().getPluginManager().getPlugin("Statz");
         if (statz != null) {
@@ -30,7 +27,7 @@ public class StatzExpansion extends PlaceholderExpansion {
             return false;
         } else {
             this.plugin = (Statz)Bukkit.getPluginManager().getPlugin(this.getPlugin());
-            return this.plugin == null ? false : PlaceholderAPI.registerPlaceholderHook(this.getIdentifier(), this);
+            return this.plugin != null && PlaceholderAPI.registerPlaceholderHook(this.getIdentifier(), this);
         }
     }
 
@@ -54,23 +51,23 @@ public class StatzExpansion extends PlaceholderExpansion {
         if (player == null) {
             return "";
         } else if (identifier.equals("joins")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.JOINS, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.JOINS, player.getUniqueId()).longValue());
         } else if (identifier.equals("deaths")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.DEATHS, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.DEATHS, player.getUniqueId()).longValue());
         } else if (identifier.equals("blocks_broken")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.BLOCKS_BROKEN, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.BLOCKS_BROKEN, player.getUniqueId()).longValue());
         } else if (identifier.equals("blocks_placed")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.BLOCKS_PLACED, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.BLOCKS_PLACED, player.getUniqueId()).longValue());
         } else if (identifier.equals("damage_taken")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.DAMAGE_TAKEN, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.DAMAGE_TAKEN, player.getUniqueId()).longValue());
         } else if (identifier.equals("distance_traveled")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.DISTANCE_TRAVELLED, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.DISTANCE_TRAVELLED, player.getUniqueId()).longValue());
         } else if (identifier.equals("food_eaten")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.FOOD_EATEN, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.FOOD_EATEN, player.getUniqueId()).longValue());
         } else if (identifier.equals("crafted_items")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.ITEMS_CRAFTED, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.ITEMS_CRAFTED, player.getUniqueId()).longValue());
         } else if (identifier.equals("kills_mobs")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_MOBS, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_MOBS, player.getUniqueId()).longValue());
         } else if (identifier.equals("kills_mobs_bat")) {
             return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_MOBS, player.getUniqueId(), new RowRequirement("mob", "BAT")).longValue());
         } else if (identifier.equals("kills_mobs_blaze")) {
@@ -170,15 +167,15 @@ public class StatzExpansion extends PlaceholderExpansion {
         } else if (identifier.equals("kills_mobs_zombie_villager")) {
             return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_MOBS, player.getUniqueId(), new RowRequirement("mob", "ZOMBIE_VILLAGER")).longValue());
         } else if (identifier.equals("caught_items")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.ITEMS_CAUGHT, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.ITEMS_CAUGHT, player.getUniqueId()).longValue());
         } else if (identifier.equals("players_killed")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_PLAYERS, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.KILLS_PLAYERS, player.getUniqueId()).longValue());
         } else if (identifier.equals("time_played")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.TIME_PLAYED, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.TIME_PLAYED, player.getUniqueId()).longValue());
         } else if (identifier.equals("times_shorn")) {
-            return String.valueOf(this.api.getSpecificData(PlayerStat.TIMES_SHORN, player.getUniqueId(), new RowRequirement[0]).longValue());
+            return String.valueOf(this.api.getSpecificData(PlayerStat.TIMES_SHORN, player.getUniqueId()).longValue());
         } else {
-            return identifier.equals("xp_gained") ? String.valueOf(this.api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId(), new RowRequirement[0]).longValue()) : null;
+            return identifier.equals("xp_gained") ? String.valueOf(this.api.getSpecificData(PlayerStat.XP_GAINED, player.getUniqueId()).longValue()) : null;
         }
     }
 }
